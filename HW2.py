@@ -71,7 +71,10 @@ def chooseFirstTurn():
 def playerChoice(gameboard):
     position = 9
     while position not in [0,1,2,3,4,5,6,7,8] or not spaceCheck(gameboard, position):
-        position = int(input(CHOOSE_POSITION))
+        try:
+            position = int(input(CHOOSE_POSITION))
+        except ValueError:
+            position = 9    
     return position 
 
 def rePlay():
@@ -98,8 +101,7 @@ if __name__ == '__main__':
     while True:   
         gameboard = [SPACE] * 9
         printGameBoard(gameboard) 
-        player1Marker, player2Marker = playerInput()
-        print (player1Marker, player2Marker)
+        player1Marker, player2Marker = playerInput()        
         turn = chooseFirstTurn()
         print(turn + YOUR_TURN)
         gameOn = True   
