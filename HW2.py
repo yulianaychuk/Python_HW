@@ -5,7 +5,7 @@
 
 import random
 
-CHOOSE_POSITION = 'Choose a position: (0-8): '
+CHOOSE_POSITION = 'Choose a position: (1-9): '
 CONGRAT = ', congratulations! You won!'
 DRAW = 'The game ended in a draw...'
 EMPTY = ''
@@ -41,7 +41,7 @@ def playerInput():
     return (player1, player2)
   
 def makeTurn(gameboard, marker, position):
-    gameboard[position] = marker
+    gameboard[position-1] = marker
     return gameboard
 
 def ifWonCheck(gameboard, marker):
@@ -53,10 +53,10 @@ def ifWonCheck(gameboard, marker):
         (gameboard[2+j*3] == gameboard[1+(j+1)*3] == gameboard[0+(j+2)*3] == marker)) 
    
 def spaceCheck(gameboard, position):
-    return gameboard[position] == SPACE
+    return gameboard[position-1] == SPACE
 
 def isFullGameboard(gameboard):
-    for i in range(0,9):
+    for i in range(1,10):
         if spaceCheck(gameboard, i):
             return False
     return True #board is full#  
@@ -69,12 +69,12 @@ def chooseFirstTurn():
         return P2
     
 def playerChoice(gameboard):
-    position = 9
-    while position not in [0,1,2,3,4,5,6,7,8] or not spaceCheck(gameboard, position):
+    position = 0
+    while position not in [1,2,3,4,5,6,7,8,9] or not spaceCheck(gameboard, position):
         try:
             position = int(input(CHOOSE_POSITION))
         except ValueError:
-            position = 9    
+            position = 0    
     return position 
 
 def rePlay():
@@ -99,7 +99,7 @@ def playTheGame(gameboard,turn,playerMarker):
 if __name__ == '__main__':
     print(WELCOME_MSG)
     while True:   
-        gameboard = [SPACE] * 9
+        gameboard = ([SPACE] * 10)[1:]
         printGameBoard(gameboard) 
         player1Marker, player2Marker = playerInput()        
         turn = chooseFirstTurn()
