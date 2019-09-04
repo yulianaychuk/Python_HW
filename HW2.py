@@ -1,6 +1,5 @@
 
 # Created on Aug 6, 2019
-
 # @author: Yuliya_Naychuk
 
 import random
