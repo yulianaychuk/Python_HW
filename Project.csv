@@ -1,0 +1,3 @@
+Name:TEXT,description:TEXT,deadline:DATE
+Cat,Feed a cat,16.10.2019
+Python hw10,CSV and SQLite working,9.10.2019

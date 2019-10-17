@@ -1,0 +1,5 @@
+id:NUMERIC,priority:INT,details:TEXT,status:TEXT,deadline:DATE,completed:DATE,Project:TEXT
+111,5,Feed the cat,ongoing,16.10.2019,,Cat
+22,100,Do HW asap!,pending,31.12.2019,,Python hw10
+12,50,Cook borshch,done,,15.10.2019,Family
+10,70,Check daughter's hw,ongoing,,15.10.2019,Family
